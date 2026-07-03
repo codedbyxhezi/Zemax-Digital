@@ -1,0 +1,350 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  border-bottom: 1px solid rgba(16, 25, 39, 0.1);
+  background: rgba(244, 239, 228, 0.86);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "links logo right";
+  align-items: center;
+  min-height: var(--nav-height);
+  gap: 24px;
+}
+
+.burger {
+  grid-area: burger;
+  justify-self: start;
+  display: none;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(16, 25, 39, 0.1);
+  border-radius: 999px;
+  padding: 0;
+  color: var(--accent);
+  background: rgba(255, 250, 241, 0.64);
+  cursor: pointer;
+  box-shadow: 0 14px 34px rgba(16, 25, 39, 0.06);
+}
+
+.burger span {
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+
+.burger span:first-child {
+  transform: translateY(-4px);
+}
+
+.burger span:last-child {
+  transform: translateY(4px);
+}
+
+.burgerOpen span:first-child {
+  transform: rotate(45deg);
+}
+
+.burgerOpen span:last-child {
+  transform: rotate(-45deg);
+}
+
+.links {
+  grid-area: links;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(16, 25, 39, 0.08);
+  border-radius: 999px;
+  padding: 7px;
+  background: rgba(255, 250, 241, 0.56);
+  box-shadow: 0 14px 36px rgba(16, 25, 39, 0.05);
+}
+
+.links a {
+  border-radius: 999px;
+  padding: 12px 16px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.links a:hover {
+  color: var(--accent);
+  background: rgba(189, 150, 81, 0.12);
+}
+
+.logoLink {
+  grid-area: logo;
+  justify-self: center;
+  display: inline-flex;
+  position: relative;
+  z-index: 2;
+}
+
+.right {
+  grid-area: right;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socials a,
+.mobileMail {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(16, 25, 39, 0.1);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(255, 250, 241, 0.58);
+  box-shadow: 0 14px 34px rgba(16, 25, 39, 0.06);
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.socials a:hover,
+.mobileMail:hover {
+  transform: translateY(-2px);
+  border-color: rgba(189, 150, 81, 0.38);
+  color: var(--gold);
+  background: rgba(255, 250, 241, 0.88);
+}
+
+.socials svg,
+.mobileMail svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.mobileMail {
+  grid-area: mail;
+  justify-self: end;
+  display: none;
+}
+
+.cta {
+  display: flex;
+}
+
+.cta a {
+  width: auto;
+  min-height: 46px;
+  padding-inline: 20px;
+  white-space: nowrap;
+}
+
+.mobileMenu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--nav-height);
+  z-index: 90;
+  border-bottom: 1px solid rgba(16, 25, 39, 0.1);
+  background:
+    radial-gradient(circle at top right, rgba(189, 150, 81, 0.18), transparent 18rem),
+    rgba(244, 239, 228, 0.96);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  transform: translateY(-18px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.mobileMenuOpen {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileInner {
+  padding-top: 22px;
+  padding-bottom: 24px;
+}
+
+.mobileLinks {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(189, 150, 81, 0.24);
+  border-radius: 26px;
+  background: rgba(255, 250, 241, 0.68);
+  box-shadow: 0 18px 50px rgba(16, 25, 39, 0.08);
+}
+
+.mobileLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  color: var(--accent);
+}
+
+.mobileLinks a:not(:last-child) {
+  border-bottom: 1px solid rgba(189, 150, 81, 0.18);
+}
+
+.mobileLinks span {
+  font-size: clamp(1.45rem, 8vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.mobileLinks small {
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.mobileBottom {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.mobileCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  border-radius: 999px;
+  color: #fffaf1;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-size: 0.9rem;
+  font-weight: 900;
+  box-shadow: 0 18px 46px rgba(16, 25, 39, 0.16);
+}
+
+.mobileSocials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.mobileSocials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border: 1px solid rgba(16, 25, 39, 0.1);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(255, 250, 241, 0.66);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .links a {
+    padding-inline: 13px;
+    font-size: 0.68rem;
+  }
+
+  .socials a {
+    width: 42px;
+    height: 42px;
+  }
+
+  .cta a {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 840px) {
+  .inner {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "burger logo mail";
+    min-height: var(--nav-height);
+  }
+
+  .burger {
+    display: grid;
+  }
+
+  .links,
+  .right {
+    display: none;
+  }
+
+  .logoLink {
+    justify-self: center;
+  }
+
+  .mobileMail {
+    display: grid;
+  }
+}
+
+@media (min-width: 841px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .burger,
+  .mobileMail {
+    width: 42px;
+    height: 42px;
+  }
+
+  .burger span {
+    width: 17px;
+  }
+}
+
+@media (max-width: 420px) {
+  .burger,
+  .mobileMail {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobileMail svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .mobileSocials {
+    grid-template-columns: 1fr;
+  }
+}

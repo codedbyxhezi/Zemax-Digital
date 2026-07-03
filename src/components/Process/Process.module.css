@@ -1,0 +1,118 @@
+.process {
+  padding: 96px 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.left {
+  position: sticky;
+  top: 120px;
+}
+
+.left p {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.left h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.07em;
+}
+
+.steps {
+  display: grid;
+  border: 1px solid rgba(200, 164, 93, 0.24);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.56);
+  box-shadow: var(--shadow-soft);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 24px;
+  padding: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.46)),
+    radial-gradient(circle at 90% 10%, rgba(232, 211, 156, 0.26), transparent 38%);
+}
+
+.step:not(:last-child) {
+  border-bottom: 1px solid rgba(200, 164, 93, 0.2);
+}
+
+.step > span {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(200, 164, 93, 0.34);
+  border-radius: 50%;
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.58);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.step h3 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.step p {
+  max-width: 560px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .left {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .process {
+    padding: 68px 0;
+  }
+
+  .left h2 {
+    font-size: clamp(2.2rem, 11vw, 3.6rem);
+    letter-spacing: -0.06em;
+  }
+
+  .steps {
+    border-radius: 28px;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 26px;
+  }
+}

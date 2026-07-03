@@ -1,0 +1,76 @@
+.hero {
+  position: relative;
+  min-height: calc(100svh - var(--nav-height));
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  isolation: isolate;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(16, 25, 39, 0.5) 0%,
+      rgba(16, 25, 39, 0.18) 38%,
+      rgba(16, 25, 39, 0.02) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(16, 25, 39, 0.12) 0%,
+      rgba(16, 25, 39, 0.05) 44%,
+      rgba(16, 25, 39, 0.46) 100%
+    ),
+    url("/images/hero-zemax.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.inner {
+  position: relative;
+  min-height: calc(100svh - var(--nav-height));
+  display: flex;
+  align-items: flex-end;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 52px;
+}
+
+.actions a {
+  min-width: 178px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    background-position: center;
+  }
+
+  .actions {
+    padding-bottom: 38px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: calc(100svh - var(--nav-height));
+    background-position: center;
+  }
+
+  .inner {
+    min-height: calc(100svh - var(--nav-height));
+  }
+
+  .actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 28px;
+  }
+
+  .actions a {
+    width: 100%;
+    min-width: 0;
+  }
+}

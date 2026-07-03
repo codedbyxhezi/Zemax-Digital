@@ -1,0 +1,52 @@
+.section {
+  padding: 96px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.quoteCard {
+  margin: 0;
+  border: 1px solid rgba(215, 180, 106, 0.18);
+  border-radius: var(--radius-lg);
+  padding: 34px;
+  background:
+    radial-gradient(circle at top left, rgba(215, 180, 106, 0.12), transparent 40%),
+    rgba(255, 255, 255, 0.045);
+}
+
+.quoteCard blockquote {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+}
+
+.quoteCard figcaption {
+  display: grid;
+  margin-top: 30px;
+  gap: 6px;
+}
+
+.quoteCard strong {
+  color: var(--gold-bright);
+}
+
+.quoteCard span {
+  color: var(--muted);
+}
+
+@media (max-width: 780px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 68px 0;
+  }
+}

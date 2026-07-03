@@ -1,0 +1,149 @@
+.services {
+  padding: 96px 0;
+}
+
+.inner {
+  display: grid;
+  gap: 46px;
+}
+
+.header {
+  max-width: 720px;
+}
+
+.header p {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.07em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: var(--shadow-soft);
+}
+
+.card {
+  position: relative;
+  min-height: 310px;
+  padding: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.45)),
+    radial-gradient(circle at 80% 10%, rgba(232, 211, 156, 0.28), transparent 38%);
+  transition:
+    background 240ms ease,
+    transform 240ms ease;
+}
+
+.card:not(:last-child) {
+  border-right: 1px solid rgba(200, 164, 93, 0.2);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(200, 164, 93, 0.12);
+  border-radius: 24px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.card:hover {
+  background:
+    linear-gradient(145deg, #ffffff, rgba(255, 255, 255, 0.62)),
+    radial-gradient(circle at 80% 10%, rgba(232, 211, 156, 0.38), transparent 42%);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.number {
+  display: inline-flex;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+}
+
+.card h3 {
+  margin: 86px 0 0;
+  color: var(--accent);
+  font-size: 1.42rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.card p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 1040px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .card:nth-child(1),
+  .card:nth-child(2) {
+    border-bottom: 1px solid rgba(200, 164, 93, 0.2);
+  }
+}
+
+@media (max-width: 720px) {
+  .services {
+    padding: 68px 0;
+  }
+
+  .inner {
+    gap: 32px;
+  }
+
+  .header h2 {
+    font-size: clamp(2.2rem, 11vw, 3.6rem);
+    letter-spacing: -0.06em;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    border-radius: 28px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 26px;
+  }
+
+  .card:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(200, 164, 93, 0.2);
+  }
+
+  .card h3 {
+    margin-top: 52px;
+    font-size: 1.28rem;
+  }
+}

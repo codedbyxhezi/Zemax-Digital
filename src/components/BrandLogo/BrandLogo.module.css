@@ -1,0 +1,79 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.wordmark {
+  position: relative;
+  display: inline-grid;
+  gap: 5px;
+  padding-bottom: 8px;
+}
+
+.wordmark::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+.main {
+  color: var(--accent);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size: 1.48rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sub {
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.32em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.compact .wordmark {
+  padding-bottom: 6px;
+}
+
+.compact .main {
+  font-size: 1.28rem;
+}
+
+.compact .sub {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .main {
+    font-size: 1.18rem;
+    letter-spacing: 0.07em;
+  }
+
+  .sub {
+    font-size: 0.5rem;
+    letter-spacing: 0.26em;
+  }
+}
+
+@media (max-width: 390px) {
+  .main {
+    font-size: 1.08rem;
+  }
+}
