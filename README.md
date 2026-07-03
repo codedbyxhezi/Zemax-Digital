@@ -1,63 +1,42 @@
-# Zemax Digital — Luxury Portfolio Website
+# Zemax Digital Portfolio
 
-Ein modernes Next.js/TypeScript Portfolio für **Zemax Digital** mit Luxury Branding, CSS Modules, responsiven Sektionen und sanften Animationen.
+Eine moderne, elegante Portfolio-Website für **Zemax Digital** — entwickelt mit **Next.js**, **TypeScript** und **CSS Modules**.
 
-## Start in VS Code
+Der Stil kombiniert eine ruhige Luxury-Ästhetik mit warmen Ivory-Tönen, Champagne-Gold und dunklen Navy-Akzenten.
 
-```bash
-npm install
-npm run dev
-```
+---
 
-Danach öffnen:
+## Preview
 
-```bash
-http://localhost:3000
-```
+Zemax Digital ist ein cleanes Portfolio-Konzept für Branding, Webdesign und digitale Premium-Auftritte.
 
-## Projektstruktur
+Enthalten sind:
 
-```txt
-src/
-  app/
-    globals.css
-    layout.tsx
-    page.tsx
-  components/
-    BrandLogo/
-    ButtonLink/
-    Cta/
-    Footer/
-    Hero/
-    Navbar/
-    PortfolioGrid/
-    Process/
-    Reveal/
-    SectionHeader/
-    Services/
-    StatsBar/
-    Testimonials/
-  lib/
-    content.ts
-  types/
-    content.ts
-public/
-  zemax-luxury-logo.svg
-  favicon.svg
-```
-
-## Anpassen
-
-- Texte, Services, Projekte und Testimonials: `src/lib/content.ts`
-- Farben/Design-Tokens: `src/app/globals.css`
-- Logo-Komponente: `src/components/BrandLogo/BrandLogo.tsx`
-- Logo-SVG-Datei: `public/zemax-luxury-logo.svg`
-
-## Features
-
-- Next.js App Router
-- TypeScript
+- feste responsive Navbar
+- Mobile Burger-Menü
+- Hero mit großem Background-Bild
+- Services Section
+- Portfolio / Selected Work
+- Process Section
+- CTA und Footer
 - CSS Modules pro Komponente
-- Luxury Branding mit Gold/Obsidian-Look
-- Animierte Hero-Gradienten, Reveal-Animationen, Hover-Effekte
-- Responsive Layouts für Desktop, Tablet und Mobile
+- responsive Layouts für Desktop, Tablet und Mobile
+
+---
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- CSS Modules
+- React
+- Responsive Design
+
+---
+
+## Projekt starten
+
+Repository klonen:
+
+```bash
+git clone https://github.com/codedbyxhezi/zemax-digital-portfolio.git
