@@ -1,79 +1,48 @@
 .logo {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #050505;
+  box-shadow:
+    0 16px 38px rgba(16, 25, 39, 0.16),
+    0 0 0 1px rgba(189, 150, 81, 0.34),
+    0 0 0 6px rgba(189, 150, 81, 0.08);
 }
 
-.wordmark {
-  position: relative;
-  display: inline-grid;
-  gap: 5px;
-  padding-bottom: 8px;
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.16);
 }
 
-.wordmark::after {
-  content: "";
-  position: absolute;
-  left: 2px;
-  right: 2px;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--gold),
-    transparent
-  );
+.compact {
+  width: 58px;
+  height: 58px;
 }
 
-.main {
-  color: var(--accent);
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-size: 1.48rem;
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.sub {
-  color: var(--gold);
-  font-size: 0.56rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: 0.32em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.compact .wordmark {
-  padding-bottom: 6px;
-}
-
-.compact .main {
-  font-size: 1.28rem;
-}
-
-.compact .sub {
-  display: none;
+@media (max-width: 840px) {
+  .logo {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 @media (max-width: 520px) {
-  .main {
-    font-size: 1.18rem;
-    letter-spacing: 0.07em;
-  }
-
-  .sub {
-    font-size: 0.5rem;
-    letter-spacing: 0.26em;
+  .logo {
+    width: 58px;
+    height: 58px;
   }
 }
 
 @media (max-width: 390px) {
-  .main {
-    font-size: 1.08rem;
+  .logo {
+    width: 54px;
+    height: 54px;
   }
 }

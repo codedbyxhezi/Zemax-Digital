@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero/Hero";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { PortfolioGrid } from "@/components/PortfolioGrid/PortfolioGrid";
 import { Process } from "@/components/Process/Process";
+import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 import { Services } from "@/components/Services/Services";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
 
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+
       <main>
         <Hero />
         <Services />
@@ -19,7 +21,9 @@ export default function Home() {
         <Testimonials />
         <Cta />
       </main>
+
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

@@ -26,27 +26,32 @@ export function PortfolioGrid() {
     <section className={styles.portfolio} id="portfolio">
       <div className={`container ${styles.inner}`}>
         <div className={styles.top}>
-          <div>
-            <p>Selected Work</p>
-            <h2>Projekte, die leise wirken — aber stark verkaufen.</h2>
-          </div>
-
-          <span className={styles.note}>
-            Konzeptbeispiele für die visuelle Richtung von Zemax Digital.
-          </span>
+          <p>Selected Work</p>
+          <h2>Ruhige Designs. Starke Wirkung. Premium Eindruck.</h2>
         </div>
 
         <div className={styles.grid}>
           {projects.map((project, index) => (
-            <article className={styles.project} key={project.title}>
+            <article
+              className={`${styles.project} ${index === 0 ? styles.large : ""}`}
+              key={project.title}
+            >
               <div className={styles.visual}>
                 <span className={styles.index}>0{index + 1}</span>
                 <span className={styles.tag}>{project.tag}</span>
 
-                <div className={styles.mockup}>
-                  <i />
-                  <i />
-                  <i />
+                <div className={styles.screen}>
+                  <div className={styles.screenTop}>
+                    <i />
+                    <i />
+                    <i />
+                  </div>
+
+                  <div className={styles.screenBody}>
+                    <span />
+                    <strong />
+                    <p />
+                  </div>
                 </div>
               </div>
 
