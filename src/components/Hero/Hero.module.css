@@ -113,6 +113,7 @@
 @media (max-width: 640px) {
   .hero {
     min-height: calc(100svh - var(--nav-height));
+    align-items: center;
     background-position: center;
   }
 
@@ -122,11 +123,14 @@
 
   .inner {
     min-height: calc(100svh - var(--nav-height));
+    align-items: center;
+    justify-content: center;
   }
 
   .content {
     max-width: 100%;
-    padding-bottom: 34px;
+    padding-bottom: 0;
+    text-align: center;
   }
 
   .kicker {
@@ -143,11 +147,12 @@
 
   .actions {
     flex-direction: column;
+    align-items: center;
     margin-top: 26px;
   }
 
   .actions a {
-    width: 100%;
+    width: min(100%, 360px);
     min-width: 0;
   }
 }
