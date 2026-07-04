@@ -6,10 +6,10 @@ import { ButtonLink } from "@/components/ButtonLink/ButtonLink";
 import styles from "./Navbar.module.css";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Blog", href: "#blog" },
-  { label: "Process", href: "#process" }
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Blog", href: "/#blog" },
+  { label: "Process", href: "/#process" }
 ];
 
 export function Navbar() {
@@ -40,7 +40,7 @@ export function Navbar() {
         </nav>
 
         <a
-          href="#top"
+          href="/#top"
           className={styles.logoLink}
           aria-label="Zemax Digital Startseite"
           onClick={closeMenu}
@@ -62,7 +62,7 @@ export function Navbar() {
             </a>
 
             <a
-              href="https://github.com/codedbyxhezi"
+              href="https://github.com"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub öffnen"
@@ -74,7 +74,7 @@ export function Navbar() {
           </div>
 
           <div className={styles.cta}>
-            <ButtonLink href="#contact" variant="ghost">
+            <ButtonLink href="/#contact" variant="ghost">
               Anfrage starten
             </ButtonLink>
           </div>
@@ -91,7 +91,11 @@ export function Navbar() {
         </a>
       </div>
 
-      <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ""}`}>
+      <div
+        className={`${styles.mobileMenu} ${
+          isOpen ? styles.mobileMenuOpen : ""
+        }`}
+      >
         <div className={`container ${styles.mobileInner}`}>
           <nav className={styles.mobileLinks} aria-label="Mobile Navigation">
             {links.map((link, index) => (
@@ -103,15 +107,25 @@ export function Navbar() {
           </nav>
 
           <div className={styles.mobileBottom}>
-            <a href="#contact" className={styles.mobileCta} onClick={closeMenu}>
+            <a
+              href="/#contact"
+              className={styles.mobileCta}
+              onClick={closeMenu}
+            >
               Anfrage starten
             </a>
 
             <div className={styles.mobileSocials}>
               <a href="mailto:hello@zemax.digital">Email</a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 LinkedIn
               </a>
+
               <a href="https://github.com" target="_blank" rel="noreferrer">
                 GitHub
               </a>

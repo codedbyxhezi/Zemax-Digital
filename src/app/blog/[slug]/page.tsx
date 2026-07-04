@@ -26,8 +26,33 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   }
 
   return {
-    title: `${post.title} | Zemax Digital`,
-    description: post.excerpt
+    title: post.title,
+    description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${post.slug}`
+    },
+    openGraph: {
+      type: "article",
+      title: `${post.title} | Zemax Digital`,
+      description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      siteName: "Zemax Digital",
+      locale: "de_DE",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: post.title
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Zemax Digital`,
+      description: post.excerpt,
+      images: ["/opengraph-image"]
+    }
   };
 }
 
