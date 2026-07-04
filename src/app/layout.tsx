@@ -2,14 +2,25 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Zemax Digital | Luxury Web Design & Branding",
-  description: "Portfolio website for Zemax Digital — luxury branding, web design and Next.js development.",
+  title: "Zemax Digital | Luxury Web Development",
+  description:
+    "Zemax Digital entwickelt elegante Websites, Premium-Brandings und digitale Auftritte mit klarer Wirkung.",
   icons: {
-    icon: "/favicon.svg"
-  }
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
+    ],
+    apple: "/apple-touch-icon.png"
+  },
+  manifest: "/site.webmanifest"
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="de">
       <body>{children}</body>
