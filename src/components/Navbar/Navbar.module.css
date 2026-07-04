@@ -95,7 +95,7 @@
 
 .links a:hover {
   color: var(--accent);
-  background: rgba(189, 150, 81, 0.12);
+  background: rgba(200, 150, 81, 0.12);
 }
 
 .logoLink {

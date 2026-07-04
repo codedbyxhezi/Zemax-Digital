@@ -6,6 +6,7 @@ import { PortfolioGrid } from "@/components/PortfolioGrid/PortfolioGrid";
 import { Process } from "@/components/Process/Process";
 import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 import { Services } from "@/components/Services/Services";
+import { Blog } from "@/components/Blog/Blog";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Services />
         <PortfolioGrid />
+        <Blog />
         <Process />
         <Testimonials />
         <Cta />

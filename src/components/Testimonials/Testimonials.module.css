@@ -1,52 +1,197 @@
-.section {
-  padding: 96px 0;
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0;
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  right: -220px;
+  top: 12%;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  background: rgba(16, 25, 39, 0.1);
+  filter: blur(44px);
+  pointer-events: none;
+}
+
+.testimonials::after {
+  content: "Reviews";
+  position: absolute;
+  left: -18px;
+  bottom: 30px;
+  color: rgba(16, 25, 39, 0.035);
+  font-size: clamp(5rem, 15vw, 15rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.12em;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 46px;
+}
+
+.header {
+  max-width: 760px;
+}
+
+.header p {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2.5rem, 5.4vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.075em;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.quoteCard {
-  margin: 0;
-  border: 1px solid rgba(215, 180, 106, 0.18);
-  border-radius: var(--radius-lg);
-  padding: 34px;
+.card {
+  position: relative;
+  overflow: hidden;
+  min-height: 330px;
+  border: 1px solid rgba(189, 150, 81, 0.24);
+  border-radius: 32px;
+  padding: 30px;
   background:
-    radial-gradient(circle at top left, rgba(215, 180, 106, 0.12), transparent 40%),
-    rgba(255, 255, 255, 0.045);
+    radial-gradient(circle at 84% 12%, rgba(228, 202, 141, 0.32), transparent 34%),
+    rgba(255, 250, 241, 0.68);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease;
 }
 
-.quoteCard blockquote {
-  margin: 0;
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  line-height: 1.35;
-  letter-spacing: -0.035em;
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(189, 150, 81, 0.44);
+  box-shadow: 0 30px 90px rgba(16, 25, 39, 0.14);
 }
 
-.quoteCard figcaption {
-  display: grid;
-  margin-top: 30px;
-  gap: 6px;
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(189, 150, 81, 0.14);
+  border-radius: 23px;
+  pointer-events: none;
 }
 
-.quoteCard strong {
-  color: var(--gold-bright);
+.featured {
+  color: #fffaf1;
+  background:
+    radial-gradient(circle at 82% 10%, rgba(228, 202, 141, 0.2), transparent 34%),
+    linear-gradient(145deg, var(--dark-surface-2), var(--dark-surface));
+  box-shadow: 0 28px 90px rgba(16, 25, 39, 0.22);
 }
 
-.quoteCard span {
+.quoteMark {
+  position: relative;
+  z-index: 1;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 5rem;
+  line-height: 0.7;
+}
+
+.quote {
+  position: relative;
+  z-index: 1;
+  margin: 42px 0 0;
   color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.78;
 }
 
-@media (max-width: 780px) {
+.featured .quote {
+  color: rgba(255, 250, 241, 0.72);
+}
+
+.person {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 6px;
+  margin-top: 42px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(189, 150, 81, 0.2);
+}
+
+.featured .person {
+  border-top-color: rgba(228, 202, 141, 0.2);
+}
+
+.person span {
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+.featured .person span {
+  color: #fffaf1;
+}
+
+.person small {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .card {
+    min-height: auto;
+  }
 }
 
-@media (max-width: 560px) {
-  .section {
-    padding: 68px 0;
+@media (max-width: 720px) {
+  .testimonials {
+    padding: 72px 0;
+  }
+
+  .inner {
+    gap: 34px;
+  }
+
+  .header h2 {
+    font-size: clamp(2.2rem, 11vw, 3.7rem);
+    letter-spacing: -0.065em;
+  }
+
+  .card {
+    border-radius: 28px;
+    padding: 26px;
+  }
+
+  .quote {
+    margin-top: 34px;
+  }
+
+  .person {
+    margin-top: 34px;
   }
 }

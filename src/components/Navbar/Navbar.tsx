@@ -8,6 +8,7 @@ import styles from "./Navbar.module.css";
 const links = [
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
+  { label: "Blog", href: "#blog" },
   { label: "Process", href: "#process" }
 ];
 
@@ -61,7 +62,7 @@ export function Navbar() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/codedbyxhezi"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub öffnen"

@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/Reveal/Reveal";
 import styles from "./Services.module.css";
 
 const services = [
@@ -33,15 +34,16 @@ export function Services() {
       <div className={styles.backgroundWord}>Services</div>
 
       <div className={`container ${styles.inner}`}>
-        <div className={styles.header}>
+        <Reveal className={styles.header}>
           <p>Services</p>
           <h2>Digitale Auftritte mit mehr Präsenz, Tiefe und Wirkung.</h2>
-        </div>
+        </Reveal>
 
         <div className={styles.grid}>
           {services.map((service, index) => (
-            <article
+            <Reveal
               className={`${styles.card} ${index === 1 ? styles.featured : ""}`}
+              delay={index * 90}
               key={service.title}
             >
               <div className={styles.top}>
@@ -56,7 +58,7 @@ export function Services() {
 
               <h3>{service.title}</h3>
               <p>{service.text}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

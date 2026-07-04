@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/Reveal/Reveal";
 import styles from "./Process.module.css";
 
 const steps = [
@@ -27,21 +28,22 @@ export function Process() {
   return (
     <section className={styles.process} id="process">
       <div className={`container ${styles.inner}`}>
-        <div className={styles.panel}>
+        <Reveal className={styles.panel}>
           <p>Process</p>
           <h2>Ein klarer Ablauf. Mehr Sicherheit. Besseres Ergebnis.</h2>
           <span>From idea to premium launch</span>
-        </div>
+        </Reveal>
 
         <div className={styles.steps}>
-          {steps.map((step) => (
-            <article className={styles.step} key={step.title}>
+          {steps.map((step, index) => (
+            <Reveal className={styles.step} delay={index * 90} key={step.title}>
               <span>{step.number}</span>
+
               <div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { BrandLogo } from "@/components/BrandLogo/BrandLogo";
+import { Reveal } from "@/components/Reveal/Reveal";
 import styles from "./Footer.module.css";
 
 const footerLinks = [
@@ -28,7 +29,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.brand}>
+        <Reveal className={styles.brand}>
           <BrandLogo />
 
           <p>
@@ -43,15 +44,17 @@ export function Footer() {
             <a href="https://github.com" target="_blank" rel="noreferrer">
               GitHub
             </a>
-            <a href="mailto:hello@zemax.digital">
-              Email
-            </a>
+            <a href="mailto:hello@zemax.digital">Email</a>
           </div>
-        </div>
+        </Reveal>
 
         <div className={styles.linksWrap}>
-          {footerLinks.map((column) => (
-            <nav className={styles.column} key={column.title}>
+          {footerLinks.map((column, index) => (
+            <Reveal
+              className={styles.column}
+              delay={index * 90}
+              key={column.title}
+            >
               <h3>{column.title}</h3>
 
               {column.links.map((link) => (
@@ -59,18 +62,18 @@ export function Footer() {
                   {link.label}
                 </a>
               ))}
-            </nav>
+            </Reveal>
           ))}
 
-          <div className={styles.contact}>
+          <Reveal className={styles.contact} delay={180}>
             <span>Project Inquiry</span>
             <h3>Let’s build something premium.</h3>
             <a href="mailto:hello@zemax.digital">hello@zemax.digital</a>
-          </div>
+          </Reveal>
         </div>
       </div>
 
-      <div className={`container ${styles.bottom}`}>
+      <Reveal className={`container ${styles.bottom}`} delay={120}>
         <p>© {year} Zemax Digital. All rights reserved.</p>
 
         <div>
@@ -78,7 +81,7 @@ export function Footer() {
           <a href="/">Impressum</a>
           <a href="/">Datenschutz</a>
         </div>
-      </div>
+      </Reveal>
     </footer>
   );
 }
