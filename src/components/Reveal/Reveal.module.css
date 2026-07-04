@@ -8,8 +8,6 @@
   transition-delay: var(--reveal-delay);
 }
 
-/* Random Varianten */
-
 .fadeUp {
   transform: translate3d(0, 42px, 0);
 }
@@ -31,8 +29,6 @@
   filter: blur(10px);
 }
 
-/* Sichtbar */
-
 .visible {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
@@ -40,25 +36,13 @@
 }
 
 @media (max-width: 720px) {
-  .fadeUp {
-    transform: translate3d(0, 28px, 0);
-  }
-
-  .slideLeft {
-    transform: translate3d(-24px, 18px, 0);
-  }
-
-  .slideRight {
-    transform: translate3d(24px, 18px, 0);
-  }
-
-  .zoomIn {
-    transform: scale(0.96) translate3d(0, 18px, 0);
-  }
-
+  .fadeUp,
+  .slideLeft,
+  .slideRight,
+  .zoomIn,
   .blurUp {
     transform: translate3d(0, 24px, 0);
-    filter: blur(7px);
+    filter: none;
   }
 }
 
