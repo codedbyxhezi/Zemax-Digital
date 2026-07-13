@@ -50,7 +50,7 @@
 }
 
 .links a:hover {
-  color: var(--accent);
+  color: var(--gold);
 }
 
 .links a:hover::after {
@@ -112,6 +112,22 @@
   width: auto;
   min-height: 44px;
   padding-inline: 18px;
+  border-color: rgba(16, 25, 39, 0.24);
+  color: var(--accent);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+.cta a::before {
+  background: var(--gold);
+}
+
+.cta a:hover {
+  border-color: var(--gold);
+  color: #fffaf1;
+  box-shadow: 0 12px 30px rgba(16, 25, 39, 0.18);
 }
 
 .burger,

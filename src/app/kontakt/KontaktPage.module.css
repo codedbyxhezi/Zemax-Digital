@@ -1,0 +1,243 @@
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 90% 42%,
+      rgba(189, 150, 81, 0.09),
+      transparent 30rem
+    ),
+    var(--bg);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 590px;
+  padding: 104px 0 82px;
+  color: #fffaf1;
+  background:
+    radial-gradient(
+      circle at 84% 16%,
+      rgba(228, 202, 141, 0.24),
+      transparent 32rem
+    ),
+    linear-gradient(145deg, #152137 0%, #0b121e 58%, #060a11 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  right: 8%;
+  top: 10%;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(228, 202, 141, 0.12);
+  transform: rotate(24deg);
+  box-shadow:
+    46px 46px 0 rgba(228, 202, 141, 0.018),
+    92px 92px 0 rgba(228, 202, 141, 0.01);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: -8%;
+  bottom: -60%;
+  width: 620px;
+  height: 620px;
+  border: 1px solid rgba(228, 202, 141, 0.09);
+  border-radius: 50%;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 420px);
+  gap: 64px;
+  align-items: end;
+  width: 100%;
+}
+
+.heroContent {
+  max-width: 1020px;
+}
+
+.kicker {
+  margin: 0 0 18px;
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #fffaf1;
+  font-size: clamp(3.7rem, 8vw, 8.2rem);
+  font-weight: 900;
+  line-height: 0.84;
+  letter-spacing: -0.085em;
+  text-transform: uppercase;
+}
+
+.hero h1 span {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(228, 202, 141, 0.76);
+}
+
+.heroDescription {
+  border-left: 1px solid rgba(228, 202, 141, 0.3);
+  padding-left: 28px;
+}
+
+.heroDescription p {
+  margin: 0;
+  color: rgba(255, 250, 241, 0.62);
+  font-size: 0.97rem;
+  line-height: 1.76;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 23px;
+  color: var(--gold-light);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heroMeta::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--gold-light);
+}
+
+.contactInformation {
+  position: relative;
+  z-index: 2;
+  padding: 72px 0 12px;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(21, 18, 13, 0.14);
+  border-bottom: 1px solid rgba(21, 18, 13, 0.14);
+}
+
+.contactItem {
+  min-width: 0;
+  padding: 32px;
+  border-right: 1px solid rgba(21, 18, 13, 0.14);
+}
+
+.contactItem:last-child {
+  border-right: 0;
+}
+
+.contactItem span {
+  display: block;
+  margin-bottom: 13px;
+  color: var(--gold);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contactItem a,
+.contactItem strong {
+  color: var(--accent);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 900;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.contactItem a {
+  transition: color 180ms ease;
+}
+
+.contactItem a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 850px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .heroDescription {
+    max-width: 560px;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactItem {
+    border-right: 0;
+    border-bottom: 1px solid rgba(21, 18, 13, 0.14);
+  }
+
+  .contactItem:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 480px;
+    align-items: center;
+    padding: 72px 0 60px;
+    text-align: center;
+  }
+
+  .hero::before {
+    right: 50%;
+    top: 20%;
+    width: 230px;
+    height: 230px;
+    transform: translateX(50%) rotate(24deg);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.9rem, 14vw, 5.2rem);
+    line-height: 0.88;
+  }
+
+  .heroDescription {
+    max-width: 390px;
+    border-top: 1px solid rgba(228, 202, 141, 0.26);
+    border-left: 0;
+    margin-inline: auto;
+    padding: 24px 0 0;
+  }
+
+  .heroDescription p {
+    font-size: 0.92rem;
+  }
+
+  .heroMeta {
+    justify-content: center;
+  }
+
+  .contactInformation {
+    padding-top: 52px;
+  }
+
+  .contactItem {
+    padding: 27px 20px;
+    text-align: center;
+  }
+}

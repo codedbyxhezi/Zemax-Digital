@@ -1,69 +1,168 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { SeoJsonLd } from "@/components/SeoJsonLd/SeoJsonLd";
+import { absoluteUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
-const siteUrl = "https://zemax.digital";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteConfig.url),
+
   title: {
-    default: "Zemax Digital | Luxury Web Development",
+    default: "Webentwicklung, UI & UX in München | Zemax Digital",
     template: "%s | Zemax Digital"
   },
-  description:
-    "Zemax Digital entwickelt elegante Websites, Premium-Brandings und digitale Auftritte mit klarer Wirkung.",
-  keywords: [
-    "Zemax Digital",
-    "Webdesign",
-    "Webentwicklung",
-    "Next.js",
-    "Branding",
-    "Luxury Web Design",
-    "Premium Website",
-    "Digital Studio"
+
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: [...siteConfig.keywords],
+
+  authors: [
+    {
+      name: siteConfig.name,
+      url: siteConfig.url
+    }
   ],
-  authors: [{ name: "Zemax Digital" }],
-  creator: "Zemax Digital",
-  publisher: "Zemax Digital",
+
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+
   alternates: {
-    canonical: siteUrl
+    canonical: "/"
   },
+
   openGraph: {
     type: "website",
-    locale: "de_DE",
-    url: siteUrl,
-    siteName: "Zemax Digital",
-    title: "Zemax Digital | Luxury Web Development",
-    description:
-      "Elegante Websites, Premium-Brandings und digitale Auftritte mit klarer Wirkung.",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Zemax Digital Luxury Web Development"
-      }
-    ]
+    locale: siteConfig.locale,
+    url: "/",
+    siteName: siteConfig.name,
+    title: "Webentwicklung, UI & UX in München | Zemax Digital",
+    description: siteConfig.description
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Zemax Digital | Luxury Web Development",
-    description:
-      "Elegante Websites, Premium-Brandings und digitale Auftritte mit klarer Wirkung.",
-    images: ["/opengraph-image"]
+    title: "Webentwicklung, UI & UX in München | Zemax Digital",
+    description: siteConfig.description
   },
+
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    nocache: false,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
-    ],
-    apple: "/apple-touch-icon.png"
-  },
-  manifest: "/site.webmanifest"
+
+  category: "technology"
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#101927"
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      alternateName: siteConfig.shortName,
+      url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl(siteConfig.logo)
+      },
+      image: absoluteUrl(siteConfig.logo),
+      email: siteConfig.email,
+      sameAs: [siteConfig.github],
+
+      areaServed: [
+        {
+          "@type": "City",
+          name: siteConfig.location.city
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: siteConfig.location.region
+        },
+        {
+          "@type": "Country",
+          name: siteConfig.location.country
+        }
+      ],
+
+      knowsAbout: [
+        "Webentwicklung",
+        "Next.js Entwicklung",
+        "TypeScript",
+        "UI Design",
+        "UX Design",
+        "Responsive Webdesign",
+        "Website Performance"
+      ],
+
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: siteConfig.email,
+        contactType: "Projektanfragen",
+        availableLanguage: ["German"]
+      },
+
+      makesOffer: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Webentwicklung",
+            description:
+              "Entwicklung performanter und responsiver Websites mit Next.js und TypeScript.",
+            areaServed: "München, Bayern und Deutschland"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "UI Design",
+            description:
+              "Individuelle Benutzeroberflächen mit klarer visueller Hierarchie und hochwertigem Design.",
+            areaServed: "München, Bayern und Deutschland"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "UX Design",
+            description:
+              "Nutzerfreundliche digitale Erlebnisse mit klarer Struktur und intuitiver Bedienung.",
+            areaServed: "München, Bayern und Deutschland"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      alternateName: siteConfig.shortName,
+      description: siteConfig.description,
+      inLanguage: siteConfig.language,
+      publisher: {
+        "@id": `${siteConfig.url}/#organization`
+      }
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -73,7 +172,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <body>
+        <SeoJsonLd data={organizationJsonLd} />
+        {children}
+      </body>
     </html>
   );
 }

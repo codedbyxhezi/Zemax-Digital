@@ -20,9 +20,9 @@
       rgba(16, 25, 39, 0.72) 100%
     ),
     url("/images/hero-webdev.png");
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero::before {
@@ -33,9 +33,14 @@
   pointer-events: none;
   background-image:
     linear-gradient(rgba(228, 202, 141, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(228, 202, 141, 0.055) 1px, transparent 1px);
+    linear-gradient(
+      90deg,
+      rgba(228, 202, 141, 0.055) 1px,
+      transparent 1px
+    );
   background-size: 88px 88px;
   mask-image: linear-gradient(to bottom, black, transparent 82%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 82%);
 }
 
 .inner {
@@ -45,8 +50,10 @@
 }
 
 .content {
+  position: relative;
+  z-index: 2;
   max-width: 720px;
-  padding: 0 0 74px;
+  padding: 0 0 clamp(120px, 15vh, 170px);
   color: #fffaf1;
   animation: heroEnter 800ms ease both;
 }
@@ -77,6 +84,14 @@
   text-shadow: 0 0 42px rgba(228, 202, 141, 0.18);
 }
 
+.description {
+  max-width: 590px;
+  margin: 24px 0 0;
+  color: rgba(255, 250, 241, 0.68);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -86,6 +101,80 @@
 
 .actions a {
   min-width: 178px;
+}
+
+/* Mouse Scroll Indicator */
+
+.scrollIndicator {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  bottom: 28px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  color: rgba(255, 250, 241, 0.68);
+  transform: translateX(-50%);
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.scrollIndicator:hover {
+  color: var(--gold-light);
+  transform: translate(-50%, 3px);
+}
+
+.mouse {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 46px;
+  border: 1px solid currentColor;
+  border-radius: 18px;
+  background: rgba(16, 25, 39, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.scrollIndicator:hover .mouse {
+  background: rgba(228, 202, 141, 0.08);
+}
+
+.mouse::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 10px;
+  background: rgba(255, 250, 241, 0.24);
+  transform: translateX(-50%);
+}
+
+.mouse i {
+  position: absolute;
+  left: 50%;
+  top: 9px;
+  display: block;
+  width: 3px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--gold-light);
+  transform: translateX(-50%);
+  animation: mouseWheel 1.7s ease-in-out infinite;
+}
+
+.scrollText {
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 @keyframes heroEnter {
@@ -100,13 +189,33 @@
   }
 }
 
+@keyframes mouseWheel {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 18px);
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
     background-position: center right;
   }
 
   .content {
-    padding-bottom: 54px;
+    padding-bottom: 96px;
   }
 }
 
@@ -129,7 +238,7 @@
 
   .content {
     max-width: 100%;
-    padding-bottom: 0;
+    padding: 0 0 72px;
     text-align: center;
   }
 
@@ -145,6 +254,13 @@
     letter-spacing: -0.055em;
   }
 
+  .description {
+    max-width: 360px;
+    margin: 20px auto 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   .actions {
     flex-direction: column;
     align-items: center;
@@ -155,12 +271,64 @@
     width: min(100%, 360px);
     min-width: 0;
   }
+
+  .scrollIndicator {
+    left: 50%;
+    right: auto;
+    bottom: 16px;
+    flex-direction: row;
+    gap: 12px;
+    transform: translateX(-50%);
+  }
+
+  .scrollIndicator:hover {
+    transform: translate(-50%, 3px);
+  }
+
+  .mouse {
+    width: 25px;
+    height: 40px;
+  }
+
+  .mouse i {
+    top: 7px;
+    height: 7px;
+  }
+
+  .scrollText {
+    writing-mode: initial;
+    transform: none;
+  }
 }
 
 @media (max-width: 420px) {
+  .content {
+    padding-bottom: 66px;
+  }
+
   .content h1 {
     font-size: clamp(3rem, 17vw, 4.6rem);
     line-height: 0.92;
     letter-spacing: -0.045em;
+  }
+
+  .scrollIndicator {
+    bottom: 12px;
+  }
+
+  .scrollText {
+    font-size: 0.54rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content,
+  .mouse i {
+    animation: none;
+  }
+
+  .scrollIndicator,
+  .scrollIndicator:hover {
+    transition: none;
   }
 }

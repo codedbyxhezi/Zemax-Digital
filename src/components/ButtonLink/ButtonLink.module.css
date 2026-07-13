@@ -1,52 +1,91 @@
 .button {
   position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 14px;
   min-height: 52px;
+  border: 1px solid transparent;
   border-radius: 999px;
-  padding: 0 24px;
-  overflow: hidden;
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  padding: 0 22px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  isolation: isolate;
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    background 220ms ease;
+    color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translateY(102%);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.button i {
+  font-style: normal;
+  font-size: 0.95rem;
+  transition: transform 200ms ease;
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+.button:hover::before {
+  transform: translateY(0);
+}
+
+.button:hover i {
+  transform: translate(3px, -3px);
 }
 
 .primary {
-  border: 1px solid rgba(16, 35, 63, 0.12);
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent), #1b365f);
-  box-shadow: 0 18px 42px rgba(16, 35, 63, 0.2);
+  border-color: var(--gold-light);
+  color: var(--accent);
+  background: var(--gold-light);
+  box-shadow: 0 12px 34px rgba(189, 150, 81, 0.2);
+}
+
+.primary::before {
+  background: var(--accent);
 }
 
 .primary:hover {
-  box-shadow: 0 24px 54px rgba(16, 35, 63, 0.24);
+  color: #fffaf1;
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px rgba(16, 25, 39, 0.28);
 }
 
 .ghost {
-  border: 1px solid var(--line-gold);
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: 0 16px 36px rgba(23, 20, 15, 0.06);
+  border-color: rgba(255, 250, 241, 0.45);
+  color: #fffaf1;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ghost::before {
+  background: var(--gold-light);
 }
 
 .ghost:hover {
-  border-color: rgba(200, 164, 93, 0.6);
-  background: rgba(255, 255, 255, 0.82);
+  color: var(--accent);
+  border-color: var(--gold-light);
+  box-shadow: 0 16px 40px rgba(189, 150, 81, 0.18);
 }
 
 @media (max-width: 640px) {
   .button {
     width: 100%;
-    min-height: 54px;
+    min-height: 52px;
   }
 }

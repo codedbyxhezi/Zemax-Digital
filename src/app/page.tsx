@@ -8,6 +8,20 @@ import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 import { Services } from "@/components/Services/Services";
 import { Blog } from "@/components/Blog/Blog";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Webentwicklung, UI & UX in München",
+  description:
+    "Zemax Digital entwickelt schnelle, hochwertige Websites und digitale Erlebnisse für Unternehmen in München – mit Webentwicklung, UI Design und UX Design.",
+  path: "/",
+  keywords: [
+    "Webentwicklung München",
+    "UI UX Agentur München",
+    "Next.js Entwickler München",
+    "professionelle Website München"
+  ]
+});
 
 export default function Home() {
   return (

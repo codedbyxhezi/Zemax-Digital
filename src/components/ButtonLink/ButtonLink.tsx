@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import styles from "./ButtonLink.module.css";
 
 type ButtonLinkProps = {
@@ -16,11 +16,10 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`${styles.button} ${
-        variant === "ghost" ? styles.ghost : styles.primary
-      }`}
+      className={`${styles.button} ${styles[variant]}`}
     >
-      {children}
+      <span>{children}</span>
+      <i aria-hidden="true">↗</i>
     </Link>
   );
 }

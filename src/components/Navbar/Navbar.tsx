@@ -1,27 +1,33 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo/BrandLogo";
 import { ButtonLink } from "@/components/ButtonLink/ButtonLink";
 import styles from "./Navbar.module.css";
 
 const links = [
-  { label: "Services", href: "/#services" },
-  { label: "Portfolio", href: "/#portfolio" },
-  { label: "Blog", href: "/#blog" },
-  { label: "Process", href: "/#process" }
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "Process", href: "/process" },
+  { label: "Kontakt", href: "/kontakt" }
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   return (
     <header className={styles.navbar}>
       <div className={`container ${styles.inner}`}>
         <button
-          className={`${styles.burger} ${isOpen ? styles.burgerOpen : ""}`}
+          className={`${styles.burger} ${
+            isOpen ? styles.burgerOpen : ""
+          }`}
           type="button"
           aria-label={isOpen ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={isOpen}
@@ -33,23 +39,23 @@ export function Navbar() {
 
         <nav className={styles.links} aria-label="Hauptnavigation">
           {links.map((link) => (
-            <a href={link.href} key={link.label}>
+            <Link href={link.href} key={link.label}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="/#top"
+        <Link
+          href="/"
           className={styles.logoLink}
           aria-label="Zemax Digital Startseite"
           onClick={closeMenu}
         >
           <BrandLogo />
-        </a>
+        </Link>
 
         <div className={styles.right}>
-          <div className={styles.socials} aria-label="Social Links">
+          <div className={styles.socials} aria-label="Social Media">
             <a
               href="https://linkedin.com"
               target="_blank"
@@ -62,7 +68,7 @@ export function Navbar() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/codedbyxhezi?tab=repositories"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub öffnen"
@@ -74,21 +80,22 @@ export function Navbar() {
           </div>
 
           <div className={styles.cta}>
-            <ButtonLink href="/#contact" variant="ghost">
-              Anfrage starten
+            <ButtonLink href="/kontakt" variant="ghost">
+              Projekt anfragen
             </ButtonLink>
           </div>
         </div>
 
-        <a
-          href="mailto:hello@zemax.digital"
+        <Link
+          href="/kontakt"
           className={styles.mobileMail}
-          aria-label="Email schreiben"
+          aria-label="Kontaktseite öffnen"
+          onClick={closeMenu}
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4.75 5.75h14.5c.96 0 1.75.79 1.75 1.75v9c0 .96-.79 1.75-1.75 1.75H4.75A1.75 1.75 0 0 1 3 16.5v-9c0-.96.79-1.75 1.75-1.75Zm.1 2 7.15 5.02 7.15-5.02H4.85Zm14.4 8.75V9.44l-6.82 4.79a.75.75 0 0 1-.86 0L4.75 9.44v7.06h14.5Z" />
           </svg>
-        </a>
+        </Link>
       </div>
 
       <div
@@ -97,26 +104,33 @@ export function Navbar() {
         }`}
       >
         <div className={`container ${styles.mobileInner}`}>
-          <nav className={styles.mobileLinks} aria-label="Mobile Navigation">
+          <nav
+            className={styles.mobileLinks}
+            aria-label="Mobile Navigation"
+          >
             {links.map((link, index) => (
-              <a href={link.href} key={link.label} onClick={closeMenu}>
+              <Link
+                href={link.href}
+                key={link.label}
+                onClick={closeMenu}
+              >
                 <span>{link.label}</span>
                 <small>0{index + 1}</small>
-              </a>
+              </Link>
             ))}
           </nav>
 
           <div className={styles.mobileBottom}>
-            <a
-              href="/#contact"
+            <Link
+              href="/kontakt"
               className={styles.mobileCta}
               onClick={closeMenu}
             >
               Anfrage starten
-            </a>
+            </Link>
 
             <div className={styles.mobileSocials}>
-              <a href="mailto:hello@zemax.digital">Email</a>
+              <a href="mailto:hello@zemax.digital">E-Mail</a>
 
               <a
                 href="https://linkedin.com"
@@ -126,7 +140,11 @@ export function Navbar() {
                 LinkedIn
               </a>
 
-              <a href="https://github.com" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 GitHub
               </a>
             </div>
