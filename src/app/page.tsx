@@ -11,7 +11,7 @@ import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Webentwicklung, UI & UX in München",
+  title: "Zemax Digital | Webentwicklung, UI & UX in München",
   description:
     "Zemax Digital entwickelt schnelle, hochwertige Websites und digitale Erlebnisse für Unternehmen in München – mit Webentwicklung, UI Design und UX Design.",
   path: "/",
