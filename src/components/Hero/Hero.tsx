@@ -14,8 +14,9 @@ export function Hero() {
           </h1>
 
           <div className={styles.actions}>
-            <ButtonLink href="#portfolio">Portfolio ansehen</ButtonLink>
-            <ButtonLink href="#contact" variant="ghost">
+            <ButtonLink href="/#portfolio">Portfolio ansehen</ButtonLink>
+
+            <ButtonLink href="/#contact" variant="ghost">
               Projekt anfragen
             </ButtonLink>
           </div>
