@@ -1,62 +1,56 @@
 import type { MetadataRoute } from "next";
-import { blogPosts, featuredPost } from "@/lib/blogPosts";
-import { absoluteUrl } from "@/lib/seo";
+
+const baseUrl = "https://zemax-digital.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages: MetadataRoute.Sitemap = [
+  return [
     {
-      url: absoluteUrl("/"),
+      url: baseUrl,
+      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1
     },
     {
-      url: absoluteUrl("/services"),
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9
     },
     {
-      url: absoluteUrl("/portfolio"),
+      url: `${baseUrl}/portfolio`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9
     },
     {
-      url: absoluteUrl("/blog"),
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8
     },
     {
-      url: absoluteUrl("/process"),
+      url: `${baseUrl}/process`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7
     },
     {
-      url: absoluteUrl("/kontakt"),
+      url: `${baseUrl}/kontakt`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8
     },
     {
-      url: absoluteUrl("/impressum"),
+      url: `${baseUrl}/impressum`,
+      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.2
     },
     {
-      url: absoluteUrl("/datenschutz"),
+      url: `${baseUrl}/datenschutz`,
+      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.2
     }
   ];
-
-  const allPosts = [featuredPost, ...blogPosts];
-
-  const uniquePosts = Array.from(
-    new Map(allPosts.map((post) => [post.slug, post])).values()
-  );
-
-  const blogPages: MetadataRoute.Sitemap = uniquePosts.map((post) => ({
-    url: absoluteUrl(`/blog/${post.slug}`),
-    changeFrequency: "monthly",
-    priority: 0.7
-  }));
-
-  return [...staticPages, ...blogPages];
 }
