@@ -79,7 +79,7 @@ export function Footer() {
 
             <div className={styles.socials} aria-label="Social Media">
               <a
-                href="https://github.com/codedbyxhezi?tab=repositories"
+                href="https://github.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub öffnen"

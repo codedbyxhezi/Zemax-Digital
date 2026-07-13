@@ -23,6 +23,7 @@
   --line-gold: rgba(189, 150, 81, 0.3);
 
   --max-width: 1360px;
+  --page-gutter: 24px;
   --nav-height: 90px;
 
   --radius-lg: 34px;
@@ -56,10 +57,27 @@ body {
   overflow-x: hidden;
   color: var(--text);
   background:
-    radial-gradient(circle at 12% 4%, rgba(228, 202, 141, 0.42), transparent 30rem),
-    radial-gradient(circle at 92% 10%, rgba(16, 25, 39, 0.16), transparent 30rem),
-    radial-gradient(circle at 74% 78%, rgba(189, 150, 81, 0.16), transparent 34rem),
-    linear-gradient(135deg, #f4efe4 0%, #eadfcf 48%, #f8f3e9 100%);
+    radial-gradient(
+      circle at 12% 4%,
+      rgba(228, 202, 141, 0.42),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 92% 10%,
+      rgba(16, 25, 39, 0.16),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 74% 78%,
+      rgba(189, 150, 81, 0.16),
+      transparent 34rem
+    ),
+    linear-gradient(
+      135deg,
+      #f4efe4 0%,
+      #eadfcf 48%,
+      #f8f3e9 100%
+    );
   font-family:
     Inter,
     ui-sans-serif,
@@ -77,10 +95,26 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(189, 150, 81, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(189, 150, 81, 0.055) 1px, transparent 1px);
+    linear-gradient(
+      rgba(189, 150, 81, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(189, 150, 81, 0.055) 1px,
+      transparent 1px
+    );
   background-size: 92px 92px;
-  mask-image: linear-gradient(to bottom, black, transparent 76%);
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 76%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 76%
+  );
 }
 
 main {
@@ -106,8 +140,8 @@ select {
 }
 
 ::selection {
-  background: rgba(189, 150, 81, 0.28);
   color: var(--text);
+  background: rgba(189, 150, 81, 0.28);
 }
 
 img,
@@ -125,17 +159,56 @@ section {
   scroll-margin-top: calc(var(--nav-height) + 24px);
 }
 
+/* Standardbreite für Laptop und normale Desktop-Bildschirme */
+
 .container {
-  width: min(100% - 48px, var(--max-width));
+  width: min(
+    calc(100% - (var(--page-gutter) * 2)),
+    var(--max-width)
+  );
   margin-inline: auto;
 }
 
 .luxury-text {
-  background: linear-gradient(92deg, var(--accent) 0%, var(--gold) 48%, #8e6832 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
+  background: linear-gradient(
+    92deg,
+    var(--accent) 0%,
+    var(--gold) 48%,
+    #8e6832 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
 }
+
+/* Große Desktop-Bildschirme */
+
+@media (min-width: 1500px) {
+  :root {
+    --max-width: calc(100vw - 96px);
+    --page-gutter: 48px;
+  }
+}
+
+/* Sehr große Desktop- und 2K-Bildschirme */
+
+@media (min-width: 2000px) {
+  :root {
+    --max-width: calc(100vw - 128px);
+    --page-gutter: 64px;
+  }
+}
+
+/* Ultrawide- und 4K-Bildschirme */
+
+@media (min-width: 2800px) {
+  :root {
+    --max-width: calc(100vw - 192px);
+    --page-gutter: 96px;
+  }
+}
+
+/* Tablet */
 
 @media (max-width: 840px) {
   :root {
@@ -143,9 +216,18 @@ section {
   }
 }
 
+/* Handy */
+
 @media (max-width: 720px) {
+  :root {
+    --page-gutter: 14px;
+  }
+
   .container {
-    width: min(100% - 28px, var(--max-width));
+    width: min(
+      calc(100% - (var(--page-gutter) * 2)),
+      var(--max-width)
+    );
   }
 
   body::before {
@@ -160,8 +242,15 @@ section {
 }
 
 @media (max-width: 420px) {
+  :root {
+    --page-gutter: 12px;
+  }
+
   .container {
-    width: min(100% - 24px, var(--max-width));
+    width: min(
+      calc(100% - (var(--page-gutter) * 2)),
+      var(--max-width)
+    );
   }
 }
 

@@ -214,17 +214,43 @@
   text-transform: uppercase;
 }
 
+/* Nur die Texte im Burgermenü wurden durch Icons ersetzt */
+
 .mobileSocials {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .mobileSocials a {
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 900;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(21, 18, 13, 0.14);
+  border-radius: 50%;
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.32);
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.mobileSocials a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(189, 150, 81, 0.55);
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.mobileSocials svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 @media (max-width: 1080px) {
