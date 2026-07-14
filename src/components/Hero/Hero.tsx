@@ -1,20 +1,38 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink/ButtonLink";
 import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
     <section className={styles.hero} id="top">
+      <Image
+        src="/images/hero-webdev.png"
+        alt=""
+        fill
+        sizes="100vw"
+        quality={75}
+        loading="eager"
+        fetchPriority="high"
+        className={styles.heroImage}
+      />
+
+      <div className={styles.heroOverlay} aria-hidden="true" />
+
       <div className={`container ${styles.inner}`}>
         <div className={styles.content}>
-          <p className={styles.kicker}> Webentwicklung · UI/UX · München</p>
+          <p className={styles.kicker}>
+            Webentwicklung · UI/UX · München
+          </p>
 
           <h1>
             Digital.
             <span>Premium.</span>
           </h1>
+
           <p className={styles.description}>
-            Zemax Digital entwickelt performante Websites und digitale Erlebnisse
-            für Unternehmen in München, Bayern und deutschlandweit.
+            Zemax Digital entwickelt performante Websites und digitale
+            Erlebnisse für Unternehmen in München, Bayern und
+            deutschlandweit.
           </p>
 
           <div className={styles.actions}>

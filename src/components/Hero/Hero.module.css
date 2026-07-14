@@ -5,6 +5,21 @@
   display: flex;
   align-items: flex-end;
   isolation: isolate;
+  background: #0d1623;
+}
+
+.heroImage {
+  position: absolute;
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
     linear-gradient(
       90deg,
@@ -18,21 +33,20 @@
       rgba(16, 25, 39, 0.18) 0%,
       rgba(16, 25, 39, 0.08) 42%,
       rgba(16, 25, 39, 0.72) 100%
-    ),
-    url("/images/hero-webdev.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    );
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 2;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(228, 202, 141, 0.08) 1px, transparent 1px),
+    linear-gradient(
+      rgba(228, 202, 141, 0.08) 1px,
+      transparent 1px
+    ),
     linear-gradient(
       90deg,
       rgba(228, 202, 141, 0.055) 1px,
@@ -40,10 +54,16 @@
     );
   background-size: 88px 88px;
   mask-image: linear-gradient(to bottom, black, transparent 82%);
-  -webkit-mask-image: linear-gradient(to bottom, black, transparent 82%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 82%
+  );
 }
 
 .inner {
+  position: relative;
+  z-index: 3;
   min-height: calc(100svh - var(--nav-height));
   display: flex;
   align-items: flex-end;
@@ -51,7 +71,6 @@
 
 .content {
   position: relative;
-  z-index: 2;
   max-width: 720px;
   padding: 0 0 clamp(120px, 15vh, 170px);
   color: #fffaf1;
@@ -110,7 +129,7 @@
   left: 50%;
   right: auto;
   bottom: 28px;
-  z-index: 5;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,8 +229,8 @@
 }
 
 @media (max-width: 900px) {
-  .hero {
-    background-position: center right;
+  .heroImage {
+    object-position: center right;
   }
 
   .content {
@@ -223,7 +242,10 @@
   .hero {
     min-height: calc(100svh - var(--nav-height));
     align-items: center;
-    background-position: center;
+  }
+
+  .heroImage {
+    object-position: center;
   }
 
   .hero::before {
@@ -288,16 +310,13 @@
   .mouse {
     width: 25px;
     height: 40px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .mouse i {
     top: 7px;
     height: 7px;
-  }
-
-  .scrollText {
-    writing-mode: initial;
-    transform: none;
   }
 }
 
