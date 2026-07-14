@@ -9,15 +9,13 @@ export function Hero() {
         src="/images/hero-webdev.png"
         alt=""
         fill
+        preload
         sizes="100vw"
-        quality={75}
-        loading="eager"
-        fetchPriority="high"
+        quality={65}
         className={styles.heroImage}
       />
 
       <div className={styles.heroOverlay} aria-hidden="true" />
-
       <div className={`container ${styles.inner}`}>
         <div className={styles.content}>
           <p className={styles.kicker}>
