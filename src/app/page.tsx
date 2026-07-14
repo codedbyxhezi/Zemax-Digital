@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero/Hero";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { PortfolioGrid } from "@/components/PortfolioGrid/PortfolioGrid";
 import { Process } from "@/components/Process/Process";
+import { Pricing } from "@/components/Pricing/Pricing";
 import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 import { Services } from "@/components/Services/Services";
 import { Blog } from "@/components/Blog/Blog";
@@ -34,6 +35,7 @@ export default function Home() {
         <PortfolioGrid />
         <Blog />
         <Process />
+        <Pricing />
         <Testimonials />
         <Cta />
       </main>
