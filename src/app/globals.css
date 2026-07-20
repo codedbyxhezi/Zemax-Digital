@@ -22,13 +22,56 @@
   --line: rgba(21, 18, 13, 0.11);
   --line-gold: rgba(189, 150, 81, 0.3);
 
+  /* Glassmorphism Light */
+
+  --glass-light: rgba(255, 255, 255, 0.38);
+  --glass-light-soft: rgba(255, 255, 255, 0.22);
+  --glass-light-strong: rgba(255, 255, 255, 0.62);
+
+  /* Glassmorphism Dark */
+
+  --glass-dark: rgba(12, 20, 32, 0.48);
+  --glass-dark-soft: rgba(12, 20, 32, 0.3);
+  --glass-dark-strong: rgba(12, 20, 32, 0.72);
+
+  /* Glass Borders */
+
+  --glass-border-light: rgba(255, 255, 255, 0.48);
+  --glass-border-soft: rgba(255, 255, 255, 0.24);
+  --glass-border-dark: rgba(228, 202, 141, 0.16);
+  --glass-border-gold: rgba(228, 202, 141, 0.32);
+
+  /* Glass Effects */
+
+  --glass-blur-sm: blur(12px);
+  --glass-blur: blur(20px);
+  --glass-blur-lg: blur(28px);
+
+  --glass-shadow-light:
+    0 18px 60px rgba(21, 18, 13, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+
+  --glass-shadow-dark:
+    0 24px 70px rgba(5, 10, 18, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  --glass-shadow-gold:
+    0 20px 60px rgba(189, 150, 81, 0.1),
+    inset 0 1px 0 rgba(228, 202, 141, 0.18);
+
+  /* Layout */
+
   --max-width: 1360px;
   --page-gutter: 24px;
   --nav-height: 90px;
 
+  /* Radius */
+
   --radius-lg: 34px;
   --radius-md: 22px;
   --radius-sm: 14px;
+
+  /* Shadows */
 
   --shadow-soft: 0 24px 80px rgba(21, 18, 13, 0.09);
   --shadow-card: 0 18px 60px rgba(21, 18, 13, 0.12);
@@ -43,7 +86,7 @@
 html {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -53,9 +96,10 @@ body {
   min-height: 100vh;
   max-width: 100%;
   margin: 0;
-  padding-top: var(--nav-height);
-  overflow-x: hidden;
+  padding-top: 0;
+  overflow-x: clip;
   color: var(--text);
+
   background:
     radial-gradient(
       circle at 12% 4%,
@@ -78,6 +122,7 @@ body {
       #eadfcf 48%,
       #f8f3e9 100%
     );
+
   font-family:
     Inter,
     ui-sans-serif,
@@ -94,6 +139,7 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+
   background-image:
     linear-gradient(
       rgba(189, 150, 81, 0.08) 1px,
@@ -104,12 +150,15 @@ body::before {
       rgba(189, 150, 81, 0.055) 1px,
       transparent 1px
     );
+
   background-size: 92px 92px;
+
   mask-image: linear-gradient(
     to bottom,
     black,
     transparent 76%
   );
+
   -webkit-mask-image: linear-gradient(
     to bottom,
     black,
@@ -159,7 +208,7 @@ section {
   scroll-margin-top: calc(var(--nav-height) + 24px);
 }
 
-/* Standardbreite für Laptop und normale Desktop-Bildschirme */
+/* Responsive Container */
 
 .container {
   width: min(
@@ -169,16 +218,104 @@ section {
   margin-inline: auto;
 }
 
+/* Luxury Gradient Text */
+
 .luxury-text {
   color: transparent;
+
   background: linear-gradient(
     92deg,
     var(--accent) 0%,
     var(--gold) 48%,
     #8e6832 100%
   );
+
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+/* ----------------------------------
+   GLOBAL GLASS UTILITIES
+---------------------------------- */
+
+.glass-light {
+  border: 1px solid var(--glass-border-light);
+  background: var(--glass-light);
+
+  box-shadow: var(--glass-shadow-light);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.glass-light-strong {
+  border: 1px solid var(--glass-border-light);
+  background: var(--glass-light-strong);
+
+  box-shadow: var(--glass-shadow-light);
+
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+}
+
+.glass-dark {
+  border: 1px solid var(--glass-border-dark);
+  background: var(--glass-dark);
+
+  box-shadow: var(--glass-shadow-dark);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.glass-dark-strong {
+  border: 1px solid var(--glass-border-gold);
+  background: var(--glass-dark-strong);
+
+  box-shadow: var(--glass-shadow-dark);
+
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+}
+
+.glass-gold {
+  border: 1px solid var(--glass-border-gold);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(228, 202, 141, 0.18),
+      rgba(189, 150, 81, 0.08)
+    );
+
+  box-shadow: var(--glass-shadow-gold);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+/* Glass Highlight */
+
+.glass-highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-highlight::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 0;
+  height: 1px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
 }
 
 /* Große Desktop-Bildschirme */
@@ -190,7 +327,7 @@ section {
   }
 }
 
-/* Sehr große Desktop- und 2K-Bildschirme */
+/* 2K / große Desktop-Bildschirme */
 
 @media (min-width: 2000px) {
   :root {
@@ -199,7 +336,7 @@ section {
   }
 }
 
-/* Ultrawide- und 4K-Bildschirme */
+/* Ultrawide / 4K */
 
 @media (min-width: 2800px) {
   :root {
@@ -216,11 +353,15 @@ section {
   }
 }
 
-/* Handy */
+/* Mobile */
 
 @media (max-width: 720px) {
   :root {
     --page-gutter: 14px;
+
+    --glass-blur-sm: blur(8px);
+    --glass-blur: blur(14px);
+    --glass-blur-lg: blur(18px);
   }
 
   .container {
@@ -253,6 +394,8 @@ section {
     );
   }
 }
+
+/* Reduced Motion */
 
 @media (prefers-reduced-motion: reduce) {
   *,

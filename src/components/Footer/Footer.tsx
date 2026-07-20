@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo/BrandLogo";
-import { Reveal } from "@/components/Reveal/Reveal";
 import styles from "./Footer.module.css";
 
 const navigation = [
@@ -17,44 +16,34 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.main}>
-          <Reveal className={styles.brand}>
-            <Link
-              href="/"
-              className={styles.logo}
-              aria-label="Zemax Digital Startseite"
-            >
+        <div className={styles.top}>
+          <div className={styles.brand}>
+            <Link href="/" className={styles.logo}>
               <BrandLogo />
             </Link>
 
             <p>
-              Individuelle Websites und digitale Auftritte mit klarer
-              Gestaltung, moderner Entwicklung und hochwertiger Wirkung.
+              Webentwicklung und UI/UX Design für moderne digitale Auftritte
+              mit Fokus auf Qualität, Performance und klare Gestaltung.
             </p>
+          </div>
 
-            <div className={styles.status}>
-              <i aria-hidden="true" />
-              <span>Verfügbar für neue Projekte</span>
-            </div>
-          </Reveal>
-
-          <Reveal className={styles.navigation} delay={90}>
+          <div className={styles.navigation}>
             <span className={styles.label}>Navigation</span>
 
             <nav aria-label="Footer Navigation">
-              {navigation.map((item, index) => (
-                <Link href={item.href} key={item.label}>
-                  <small>0{index + 1}</small>
-                  <span>{item.label}</span>
+              {navigation.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  {item.label}
                 </Link>
               ))}
             </nav>
-          </Reveal>
+          </div>
 
-          <Reveal className={styles.contact} delay={180}>
-            <span className={styles.label}>Projektanfrage</span>
+          <div className={styles.contact}>
+            <span className={styles.label}>Kontakt</span>
 
-            <h2>Bereit für einen starken digitalen Auftritt?</h2>
+            <h2>Bereit für dein nächstes Projekt?</h2>
 
             <a
               href="mailto:hello@zemax.digital"
@@ -64,59 +53,42 @@ export function Footer() {
             </a>
 
             <Link href="/kontakt" className={styles.contactButton}>
-              Anfrage starten
+              Projekt anfragen
               <span aria-hidden="true">↗</span>
             </Link>
-          </Reveal>
+          </div>
         </div>
 
-        <Reveal className={styles.bottom} delay={220}>
-          <div className={styles.bottomMain}>
-            <div className={styles.legal}>
-              <Link href="/impressum">Impressum</Link>
-              <Link href="/datenschutz">Datenschutz</Link>
-            </div>
+        <div className={styles.bottom}>
+          <p>© {year} Zemax Digital</p>
 
-            <div className={styles.socials} aria-label="Social Media">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub öffnen"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2.75a9.25 9.25 0 0 0-2.92 18.03c.46.08.63-.2.63-.44v-1.62c-2.57.56-3.12-1.1-3.12-1.1-.42-1.07-1.03-1.36-1.03-1.36-.84-.58.06-.57.06-.57.93.07 1.42.96 1.42.96.83 1.41 2.17 1 2.7.76.08-.6.32-1 .58-1.23-2.05-.23-4.2-1.02-4.2-4.55 0-1 .36-1.83.95-2.48-.1-.23-.41-1.17.09-2.44 0 0 .78-.25 2.55.95a8.8 8.8 0 0 1 4.64 0c1.77-1.2 2.55-.95 2.55-.95.5 1.27.19 2.21.1 2.44.59.65.94 1.47.94 2.48 0 3.54-2.16 4.31-4.22 4.54.33.29.63.85.63 1.72v2.43c0 .24.17.52.64.43A9.25 9.25 0 0 0 12 2.75Z" />
-                </svg>
-              </a>
-
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn öffnen"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6.94 8.98H3.68V20h3.26V8.98ZM5.31 4a1.88 1.88 0 1 0 0 3.76A1.88 1.88 0 0 0 5.31 4ZM20.32 13.68c0-3.2-1.7-4.95-4.15-4.95a3.55 3.55 0 0 0-3.2 1.76V8.98H9.84V20h3.26v-5.45c0-1.44.27-2.84 2.06-2.84 1.76 0 1.78 1.65 1.78 2.93V20h3.26v-6.32h.12Z" />
-                </svg>
-              </a>
-
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram öffnen"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7.55 2.75h8.9a4.8 4.8 0 0 1 4.8 4.8v8.9a4.8 4.8 0 0 1-4.8 4.8h-8.9a4.8 4.8 0 0 1-4.8-4.8v-8.9a4.8 4.8 0 0 1 4.8-4.8Zm0 1.8a3 3 0 0 0-3 3v8.9a3 3 0 0 0 3 3h8.9a3 3 0 0 0 3-3v-8.9a3 3 0 0 0-3-3h-8.9Zm9.4 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 7.25A4.75 4.75 0 1 1 12 16.75 4.75 4.75 0 0 1 12 7.25Zm0 1.8A2.95 2.95 0 1 0 12 14.95 2.95 2.95 0 0 0 12 9.05Z" />
-                </svg>
-              </a>
-            </div>
+          <div className={styles.legal}>
+            <Link href="/impressum">Impressum</Link>
+            <Link href="/datenschutz">Datenschutz</Link>
           </div>
 
-          <p className={styles.copyright}>
-            © {year} Zemax Digital. Alle Rechte vorbehalten.
-          </p>
-        </Reveal>
+          <div className={styles.socials}>
+            <a
+              href="mailto:hello@zemax.digital"
+              aria-label="E-Mail"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3.75 5.25h16.5A1.75 1.75 0 0 1 22 7v10a1.75 1.75 0 0 1-1.75 1.75H3.75A1.75 1.75 0 0 1 2 17V7a1.75 1.75 0 0 1 1.75-1.75Zm.19 1.5L12 12.58l8.06-5.83H3.94Zm16.56 1.31-8.06 5.83a.75.75 0 0 1-.88 0L3.5 8.06V17c0 .14.11.25.25.25h16.5c.14 0 .25-.11.25-.25V8.06Z" />
+              </svg>
+            </a>
+
+            <a
+              href="https://github.com/codedbyxhezi?tab=repositories"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .7A11.3 11.3 0 0 0 8.43 22.72c.57.1.78-.24.78-.55v-2.16c-3.18.69-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.54-.29-5.21-1.27-5.21-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17A10.88 10.88 0 0 1 12 5.91c.97 0 1.93.13 2.84.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.39-2.68 5.36-5.23 5.64.41.35.77 1.04.77 2.1v3.2c0 .31.21.66.79.55A11.3 11.3 0 0 0 12 .7Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
