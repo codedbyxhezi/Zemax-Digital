@@ -90,7 +90,7 @@
 }
 
 .links a:hover {
-  color: var(--accent);
+  color: var(--gold-light);
   text-shadow: 0 0 20px rgba(228, 202, 141, 0.22);
 }
 

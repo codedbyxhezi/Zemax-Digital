@@ -47,7 +47,10 @@ export function PortfolioGrid() {
         <Reveal className={styles.header}>
           <div>
             <p>Selected Projects</p>
-            <h2>Echte Projekte. Individuell gestaltet und entwickelt.</h2>
+
+            <h2>
+              Echte Projekte. Individuell gestaltet und entwickelt.
+            </h2>
           </div>
 
           <span>
@@ -93,7 +96,9 @@ export function PortfolioGrid() {
                     <small>Live Project</small>
                   </div>
 
-                  <div className={styles.openIcon}>↗</div>
+                  <div className={styles.openIcon} aria-hidden="true">
+                    ↗
+                  </div>
                 </div>
               </a>
 
@@ -121,7 +126,7 @@ export function PortfolioGrid() {
                     className={styles.liveButton}
                   >
                     Website ansehen
-                    <span>↗</span>
+                    <span aria-hidden="true">↗</span>
                   </a>
                 </div>
               </div>
